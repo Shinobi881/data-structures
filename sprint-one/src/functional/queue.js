@@ -3,7 +3,7 @@ var Queue = function(){
   var size = 0;
   // Use an object with numeric keys to store values
   var storage = {};
-  storage.before = null;
+  storage.second = null;
   storage.first = null;
 
   // Implement the methods below
@@ -11,10 +11,10 @@ var Queue = function(){
   someInstance.enqueue = function(value){
     someInstance.value = value;
     if(size === 0){
-    storage.first = someInstance.value; //a
+    storage.second = someInstance.value; //a
   } 
-    storage.before = storage.first ; //a
-    storage.first = someInstance.value;
+    storage.first = storage.second ; //a
+    storage.second = someInstance.value;
     size++;
   };
 
@@ -24,7 +24,7 @@ var Queue = function(){
     }
     size--;
     var goodbyeProp = storage.first;
-    storage.first = storage.before;
+    storage.first = storage.second;
     return goodbyeProp;
   };
 
