@@ -4,6 +4,8 @@ var Stack = function() {
   	var obj = {};
 
   	obj.storage = {};
+  	obj.storage.last = null;
+  	obj.storage.before = null;
 	obj.count = 0;
   	//console.log(obj.count);
   	obj.push = stackMethods.push;
@@ -17,8 +19,19 @@ var Stack = function() {
 };
 
 var stackMethods = {};
-stackMethods.push = function(value){ this.count++;};
-stackMethods.pop = function(){this.count--;};
+stackMethods.push = function(value){ 
+	this.storage.value = value;
+	if(this.storage.last === null){
+		this.storage.last = this.storage.before;
+	}
+
+	this.count++;};
+stackMethods.pop = function(){
+if(this.count === 0){
+	return;
+}
+	this.count--;};
+
 stackMethods.size = function(){return this.count;};
 
 
