@@ -3,8 +3,8 @@ var Queue = function(){
   // but try not not reference your old code in writing the new style.
 var obj = {};
 	obj.storage = {};
-	obj.storage.last = null;
-	obj.storage.before = null;
+	obj.storage.first = null;
+	obj.storage.second = null;
 	obj.count = 0;
 	
 	obj.enqueue = queueMethods.enqueue;
@@ -21,6 +21,14 @@ var obj = {};
 var queueMethods = {};
 	
 	queueMethods.enqueue = function(value){
+		this.storage.value = value;
+		if(this.count === 0){
+			this.storage.second = this.storage.value;
+		}
+
+		this.storage.first = this.storage.second;
+		this.storage.second = this.storage.value;
+
 		this.count++
 	};
 
@@ -28,7 +36,12 @@ var queueMethods = {};
 		if(this.count === 0){
 			return this.count;
 		}
+
 		this.count--;
+
+		var seeYou = this.storage.first;
+		this.storage.first = this.storage.second;
+		return seeYou;
 
 	};
 
