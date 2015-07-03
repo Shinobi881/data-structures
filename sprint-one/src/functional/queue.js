@@ -6,7 +6,7 @@ var Queue = function(){
   storage.second = null;
   storage.first = null;
 
-  // Implement the methods below
+  // Implement the object functions below
 
   someInstance.enqueue = function(value){
     someInstance.value = value;
