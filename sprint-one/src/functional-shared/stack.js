@@ -24,13 +24,24 @@ stackMethods.push = function(value){
 	if(this.storage.last === null){
 		this.storage.last = this.storage.before;
 	}
+	this.count++;
 
-	this.count++;};
+	this.storage.before = this.storage.last;
+	this.storage.last = this.storage.value;
+
+};
 stackMethods.pop = function(){
 if(this.count === 0){
 	return;
 }
-	this.count--;};
+	this.count--;
+var peaceOut = this.storage.last;
+	this.storage.last = this.storage.before;
+	return peaceOut;
+
+};
+
+
 
 stackMethods.size = function(){return this.count;};
 
