@@ -33,7 +33,6 @@ var LinkedList = function(){
     var isFound = false;
     for(var i in list){
       if(list[i].value === target){
-          console.log('Logging iterator', list[i].value);
           isFound = true;
       }
 
