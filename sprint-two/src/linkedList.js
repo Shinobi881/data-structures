@@ -27,9 +27,19 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
-  
-    return _.contains(list, target);
-      };
+
+    //console.log(list);
+    //console.log('Logging target', target);
+    var isFound = false;
+    for(var i in list){
+      if(list[i].value === target){
+          console.log('Logging iterator', list[i].value);
+          isFound = true;
+      }
+
+    }
+          return isFound;
+  };
 
   return list;
 };
