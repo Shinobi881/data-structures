@@ -25,7 +25,7 @@ Stack.prototype.pop = function(){
 	this.count--;
 	var peaceOut = this.storage.last;
 	this.storage.last = this.storage.before;
-	return seeYou;
+	return peaceOut;
 }
 
 Stack.prototype.size = function(){
